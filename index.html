@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom cursor styles */
+        .cursor {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+        }
+
+        /* Hide default cursor */
+        body {
+            cursor: none !important;
+        }
+
+        /* Keep default cursor for interactive elements */
+        button, input, a {
+            cursor: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add cursor div -->
+    <div class="cursor"></div>
+
+    <div class="container">
+        <div id="about">
+            <a href="about us.html">Per ne</a>
+        </div>
+        <div id=contact>
+            <a href="contact.html">Na kontakto</a>
+        </div>
+    </div>
+
+    <div id="Tema">
+        <h1>Guida Turistike</h1>
+    </div>
+    
+    <div id="Welcome">
+        <h3>Mirë se erdhe në faqen tonë!</h3>
+        <p>Jemi shumë të lumtur që na vizituat! 
+            Në këtë projekt do të shfaqim një udhërrëfyes
+             të detajuar për udhëtime dhe aventura nga eksperiencat tona personale.
+              Do të eksplorojmë vendet e ndryshme që kemi vizituar,
+               duke ndarë histori interesante, këshilla udhëtimi, dhe informacion 
+               rreth destinacioneve të mrekullueshme që ia vlejnë të vizitohen. 
+               Shpresojmë që këto përvoja të na inspirojnë të gjithëve për të udhëtuar më shumë dhe për të zbuluar botën përreth nesh!</p>
+    <div class="name-form">
+        <input type="text" id="visitorName" placeholder="Shkruani emrin tuaj" required>
+        <button onclick="submitForm()">Enter</button>
+    </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const nameInput = document.getElementById('visitorName');
+            if (nameInput.value.trim() === '') {
+                nameInput.setCustomValidity('Ju lutem shkruani emrin tuaj!');
+                nameInput.reportValidity();
+                return;
+            }
+            window.location.href = `welcome.html?name=${encodeURIComponent(nameInput.value)}`;
+        }
+
+        // Add event listener for Enter key
+        document.getElementById('visitorName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitForm();
+            }
+        });
+
+        // Add cursor movement code
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    </script>
+</body>
+</html>

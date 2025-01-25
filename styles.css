@@ -1,0 +1,280 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+h1 {
+    animation: glitchEffect 3s infinite;
+    position: relative;
+}
+
+@keyframes glitchEffect {
+    0% {
+        text-shadow: none;
+        transform: translateX(0);
+    }
+    25% {
+        text-shadow: 
+            -2px -2px 0 #ff0000,
+            2px 2px 0 #00ff00;
+        transform: translateX(-2px);
+    }
+    26% {
+        text-shadow: 
+            2px -2px 0 #0000ff,
+            -2px 2px 0 #ff00ff;
+        transform: translateX(2px);
+    }
+    27% {
+        text-shadow: none;
+        transform: translateX(0);
+    }
+    72% {
+        text-shadow: none;
+        transform: skewX(0);
+    }
+    73% {
+        text-shadow: 
+            -2px 0 0 #ff0000,
+            2px 0 0 #00ff00;
+        transform: skewX(5deg);
+    }
+    74% {
+        text-shadow: 
+            2px 0 0 #0000ff,
+            -2px 0 0 #ff00ff;
+        transform: skewX(-5deg);
+    }
+    75% {
+        text-shadow: none;
+        transform: skewX(0);
+    }
+    100% {
+        text-shadow: none;
+        transform: translateX(0);
+    }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23ffffff22'/%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: 0 bottom;
+    background-size: 50% auto;
+    animation: wave 20s infinite linear;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23ffffff33'/%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: 0 bottom;
+    background-size: 50% auto;
+    animation: wave 15s infinite linear reverse;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+#about, #contact {
+    margin-left: 20px;
+}
+
+#about a, #contact a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    background: linear-gradient(
+        90deg,
+        #2c3e50,
+        #3498db,
+        #2980b9,
+        #2c3e50
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#about a:hover, #contact a:hover {
+    background-color: transparent;
+    opacity: 0.8;
+}
+
+#Tema {
+    text-align: center;
+    padding: 40px 0;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+#Tema h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+#Welcome {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: fadeInUp 1.2s ease-out 0.4s both;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#Welcome:hover {
+    transform: translateY(-5px);
+}
+
+#Welcome h3 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+#Welcome p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.name-form {
+    margin-top: 30px;
+    text-align: center;
+    animation: fadeInUp 1.4s ease-out 0.6s both;
+}
+
+#visitorName {
+    padding: 12px 20px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(44, 62, 80, 0.2);
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+#visitorName:focus {
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(44, 62, 80, 0.1);
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+    background: linear-gradient(135deg, #34495e, #2980b9);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #Welcome {
+        margin: 20px;
+    }
+
+    #visitorName {
+        width: calc(100% - 40px);
+        margin: 0 0 10px 0;
+    }
+
+    .name-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animation for welcome message */
+#displayName {
+    color: #2c3e50;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animated wave background */
+@keyframes wave {
+    0% { transform: translateX(0) translateZ(0) scaleY(1); }
+    50% { transform: translateX(-25%) translateZ(0) scaleY(0.55); }
+    100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

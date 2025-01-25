@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regjistrohu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Updated cursor styles */
+        .cursor {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+        }
+
+        /* Hide default cursor */
+        body {
+            cursor: none !important;
+        }
+
+        /* Keep default cursor for interactive elements */
+        button, input, a {
+            cursor: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Move cursor div here -->
+    <div class="cursor"></div>
+
+    <div class="container">
+        <div id="about">
+            <a href="about us.html">Per ne</a>
+        </div>
+        <div id="contact">
+            <a href="contact.html">Na kontakto</a>
+        </div>
+    </div>
+
+    <div id="Tema">
+        <h1>Ksamil, Shqipëri</h1>
+    </div>
+    
+    <div id="Welcome">
+        <h3>Mirësevini në Ksamil!</h3>
+        <img src="Albania 1.png" alt="Beautiful Ksamil Beach" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px; margin: 20px 0;">
+        
+        <p>Ksamil është një fshat dhe ish-bashki në Shqipërinë e jugut, 
+           tani pjesë e Bashkisë Sarandë. Ky qytet bregdetar piktoresk 
+           është i njohur për plazhet e bukura, ujërat kristal dhe ishujt e vegjël.</p>
+
+        <h3>Pikat Kryesore</h3>
+        <ul>
+            <li>Katër ishuj të vegjël të aksesueshëm me varkë</li>
+            <li>Plazhe të bukura mesdhetare</li>
+            <li>Ujëra të kristalta në ngjyrë turkuaz</li>
+            <li>Afërsia me Parkun Kombëtar të Butrintit</li>
+            <li>Restorante me fruta deti të freskëta</li>
+        </ul>
+    </div>
+
+    <!-- Updated cursor script -->
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        });
+
+        // Scale effect on click
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    </script>
+</body>
+</html>

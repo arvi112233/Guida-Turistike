@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Hello/styles.css">
+    <style>
+        /* Custom cursor styles */
+        .cursor {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+        }
+
+        /* Hide default cursor */
+        body {
+            cursor: none !important;
+        }
+
+        /* Keep default cursor for interactive elements */
+        button, input, a {
+            cursor: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add cursor div -->
+    <div class="cursor"></div>
+
+    <div class="container">
+        <div id="about">
+            <a href="#Welcome">Per ne</a>
+        </div>
+        <div id="contact">
+            <a href="#contact-section">Na kontakto</a>
+        </div>
+    </div>
+
+    <div id="Tema">
+        <h1>Guida Turistike</h1>
+    </div>
+
+    <div id="Welcome">
+        <h3>Mirë se erdhe <span id="displayName"></span>!</h3>
+        <p>Faleminderit që na vizituat! Jemi të lumtur t'ju kemi këtu.</p>
+    </div>
+    <div class="name-form" style="text-align: center; margin-top: 20px;">
+        <button onclick="window.location.href='Offical.html'">Vazhdo</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            
+            // Redirect back to index if no name provided
+            if (!name) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            document.getElementById('displayName').textContent = name;
+        }
+
+        // Add cursor movement code
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    </script>
+</body>
+</html>
