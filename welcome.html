@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Hello/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* Custom cursor styles */
         .cursor {
@@ -27,6 +27,9 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Keep default cursor for interactive elements */
@@ -38,11 +41,32 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            flex: 1;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #007bff;
         }
 
         #Welcome {
             text-align: center;
             padding: 40px 20px;
+            margin-top: 2rem;
         }
 
         button {
@@ -62,6 +86,14 @@
         #Tema {
             text-align: center;
             padding: 20px 0;
+            background-color: #007bff;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        #Tema h1 {
+            margin: 0;
+            font-size: 2.5rem;
         }
 
         a {
@@ -72,32 +104,51 @@
         a:hover {
             color: #0056b3;
         }
+
+        .name-form {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
     <!-- Add cursor div -->
     <div class="cursor"></div>
 
-    <div class="container">
-        <div id="about">
+    <nav>
+        <div class="container">
             <a href="#Welcome">Per ne</a>
-        </div>
-        <div id="contact">
             <a href="#contact-section">Na kontakto</a>
         </div>
-    </div>
+    </nav>
 
     <div id="Tema">
         <h1>Guida Turistike</h1>
     </div>
 
-    <div id="Welcome">
-        <h3>Mirë se erdhe <span id="displayName"></span>!</h3>
-        <p>Faleminderit që na vizituat! Jemi të lumtur t'ju kemi këtu.</p>
+    <div class="container">
+        <div id="Welcome">
+            <h3>Mirë se erdhe <span id="displayName"></span>!</h3>
+            <p>Faleminderit që na vizituat! Jemi të lumtur t'ju kemi këtu.</p>
+        </div>
+        
+        <div class="name-form">
+            <button onclick="window.location.href='Offical.html'">Vazhdo</button>
+        </div>
     </div>
-    <div class="name-form" style="text-align: center; margin-top: 20px;">
-        <button onclick="window.location.href='/Hello/Offical.html'">Vazhdo</button>
-    </div>
+
+    <footer>
+        <p>&copy; 2024 Guida Turistike. All rights reserved.</p>
+    </footer>
 
     <script>
         window.onload = function() {
@@ -106,7 +157,7 @@
             
             // Redirect back to index if no name provided
             if (!name) {
-                window.location.href = '/Hello/index.html';
+                window.location.href = 'index.html';
                 return;
             }
             
