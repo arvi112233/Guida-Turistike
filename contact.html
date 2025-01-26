@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom cursor styles */
+        .cursor {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+        }
+
+        /* Hide default cursor */
+        body {
+            cursor: none !important;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Keep default cursor for interactive elements */
+        button, input, a {
+            cursor: auto !important;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            background-color: #333;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        #about, #contact {
+            margin-left: 20px;
+        }
+
+        #about a, #contact a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        #about a:hover, #contact a:hover {
+            color: #007bff;
+        }
+
+        #Tema {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            color: #333;
+            background-color: transparent;
+        }
+
+        #Tema h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            margin: 20px 0;
+        }
+
+        .contact-item h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        .contact-item a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <div class="container">
+        <div id="about">
+            <a href="index.html">Per ne</a>
+        </div>
+        <div id="contact">
+            <a href="contact.html">Na kontakto</a>
+        </div>
+    </div>
+
+    <div id="Tema">
+        <h1>Na Kontaktoni</h1>
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-card">
+            <div class="contact-item">
+                <h3>Telefon</h3>
+                <p><a href="tel:+355692604007">069 26 04 007</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p><a href="mailto:zaniharvard640@gmail.com">zaniharvard640@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Guida Turistike. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add cursor movement code
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    </script>
+</body>
+</html>
