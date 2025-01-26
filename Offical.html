@@ -22,11 +22,27 @@
         /* Hide default cursor */
         body {
             cursor: none !important;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         /* Keep default cursor for interactive elements */
         button, input, a {
             cursor: auto !important;
+        }
+
+        /* Add/update footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -64,6 +80,10 @@
             <li>Restorante me fruta deti të freskëta</li>
         </ul>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Guida Turistike. All rights reserved.</p>
+    </footer>
 
     <!-- Updated cursor script -->
     <script>
